@@ -11,6 +11,7 @@ void menu();                                    // Menu de opções.
 void push();                                    // Adicionando um item a pilha.
 void pop();                                     // Removendo um item do topo da pilha.
 void peek();                                    // Vendo o item que esta no topo da pilha.
+void show();                                    // Mostra todos os items que estão dentro da "Pilha"
 bool isFull();                                  // Verificação se a pilha está cheia.
 bool isEmpty();                                 // Verificação se a pilha está vazia.
 
@@ -20,6 +21,7 @@ int topo = -1, array[TAM];                      // Criação do topo e da pilha[
 int main(void)                                  // Programa Principal.
 {
     menu();
+    system("cls");
     printf("\n\nF I M  D O  P R O G R A M A.");
     return 0;
 };
@@ -31,9 +33,11 @@ void menu(){
         printf("\n1.Adicionar a pilha");
         printf("\n2.Remover da pilha");
         printf("\n3.Mostrar topo da pilha");
+        printf("\n4.Mostrar todos os itens da pilha");
         printf("\n0.Sair");
-        printf("\n\nDigite a opcao que deseja utilizar (0-3): ");
+        printf("\n\nDigite a opcao que deseja utilizar (0-4): ");
         scanf("%d", &opcao);
+        system("cls");
 
         if(opcao == 0){
             break;
@@ -50,8 +54,14 @@ void menu(){
             break;
         
         case 3:
-            printf("\nTopo da pilha: ");
+            if(topo > -1){
+                printf("\nTopo da pilha: ");
+            };
             peek();
+            break;
+        
+        case 4:
+            show();
             break;
         
         default:
@@ -65,20 +75,20 @@ void push()
 {
     int valor;
     if(isFull() == true){
-        printf("\nImpossivel adicionar novo item, a pilha se encontra cheia.\n\n");
+        printf("\n **Impossivel adicionar novo item, a pilha se encontra cheia.\n\n");
     }else{
         topo++;
         printf("\nDigite o valor que deseja adicionar ao topo da pilha: ");
         scanf("%d", &valor);
         array[topo] = valor;
-        printf("\n\n");
+        printf("\n");
     };
 };
 
 void pop()
 {
     if(isEmpty() == true){
-        printf("\nImpossivel remover item do topo pois a pilha ja se encontra vazia.\n\n");
+        printf("\n **Impossivel remover item do topo pois a pilha ja se encontra vazia.\n\n");
     }else{
         printf("\nItem removido com sucesso: ");
         peek();
@@ -89,13 +99,27 @@ void pop()
 void peek()
 {
     if(isEmpty() == true){
-        printf("\nA pilha se encontra vazia.\n\n");
+        printf("\n **A pilha se encontra vazia.\n\n");
     }else{
         printf("%d\n\n", array[topo]);
     };
 };
 
-bool isFull(){
+void show()
+{
+    if(isEmpty() == true){
+        printf("\n **A pilha se encontra vazia.\n\n");
+    }else{
+        printf("\nItens na pilha: ");
+        for(int i = 0;i < topo+1; i++){
+            printf("%d  ",array[i]);
+        };
+        printf("\n\n");
+    };
+}
+
+bool isFull()
+{
     if(topo == (TAM-1)){
         return(true);
     }else{
