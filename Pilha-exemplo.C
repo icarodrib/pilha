@@ -20,6 +20,7 @@ int topo = -1, array[TAM];                      // Criação do topo e da pilha[
 
 int main(void)                                  // Programa Principal.
 {
+    system("cls");
     menu();
     system("cls");
     printf("\n\nF I M  D O  P R O G R A M A.");
