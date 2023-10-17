@@ -20,6 +20,7 @@ int topo = -1, array[TAM];                      // Criação do topo e da pilha[
 
 int main(void)                                  // Programa Principal.
 {
+    system("cls");
     menu();
     system("cls");
     printf("\n\nF I M  D O  P R O G R A M A.");
@@ -28,7 +29,7 @@ int main(void)                                  // Programa Principal.
 
 void menu(){
     do{
-        int opcao;
+        char opcao;
         printf("MENU");
         printf("\n1.Adicionar a pilha");
         printf("\n2.Remover da pilha");
@@ -36,31 +37,31 @@ void menu(){
         printf("\n4.Mostrar todos os itens da pilha");
         printf("\n0.Sair");
         printf("\n\nDigite a opcao que deseja utilizar (0-4): ");
-        scanf("%d", &opcao);
+        scanf("%s", &opcao);
         system("cls");
 
-        if(opcao == 0){
+        if(opcao == '0'){
             break;
         };
 
         switch (opcao)
         {
-        case 1:
+        case '1':
             push();
             break;
         
-        case 2:
+        case '2':
             pop();
             break;
         
-        case 3:
+        case '3':
             if(topo > -1){
                 printf("\nTopo da pilha: ");
             };
             peek();
             break;
         
-        case 4:
+        case '4':
             show();
             break;
         
@@ -78,7 +79,7 @@ void push()
         printf("\n **Impossivel adicionar novo item, a pilha se encontra cheia.\n\n");
     }else{
         topo++;
-        printf("\nDigite o valor que deseja adicionar ao topo da pilha: ");
+        printf("\nDigite o NUMERO INTEIRO que deseja adicionar ao topo da pilha: ");
         scanf("%d", &valor);
         array[topo] = valor;
         printf("\n");
