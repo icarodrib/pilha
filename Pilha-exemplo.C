@@ -66,7 +66,7 @@ void menu(){
             break;
         
         default:
-            printf("\nNumero digitado invalido, por favor digite uma opcao valida.\n\n");
+            printf("\n **Opcao digitada invalida, por favor digite uma opcao valida.\n\n");
             break;
         }
     }while(true);
