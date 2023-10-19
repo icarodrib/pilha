@@ -33,7 +33,7 @@ void menu(){
         printf("MENU");
         printf("\n1.Adicionar a pilha");
         printf("\n2.Remover da pilha");
-        printf("\n3.Mostrar topo da pilha");
+        printf("\n3.Mostrar o item no topo da pilha");
         printf("\n4.Mostrar todos os itens da pilha");
         printf("\n0.Sair");
         printf("\n\nDigite a opcao que deseja utilizar (0-4): ");
@@ -55,9 +55,6 @@ void menu(){
             break;
         
         case '3':
-            if(topo > -1){
-                printf("\nTopo da pilha: ");
-            };
             peek();
             break;
         
@@ -102,6 +99,7 @@ void peek()
     if(isEmpty() == true){
         printf("\n **A pilha se encontra vazia.\n\n");
     }else{
+        printf("\nItem no topo da pilha: ");
         printf("%d\n\n", array[topo]);
     };
 };
